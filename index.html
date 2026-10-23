@@ -85,7 +85,7 @@ h1 em{font-style:italic;color:var(--accent)}
 .badge small{color:var(--muted);font-size:12px}
 .badge.b1{left:-28px;bottom:48px}
 .badge.b2{right:-14px;top:28px;display:flex;align-items:center;gap:8px}
-.badge.b2 .snow{font-size:20px;color:#29b5e8}
+.badge.b2 .sf{width:22px;height:22px;flex:none}
 @media (max-width:880px){
   .hero{padding:40px 0}
   .hero .wrap{grid-template-columns:1fr;gap:40px}
@@ -178,6 +178,17 @@ h2{font:500 clamp(34px,4.5vw,52px)/1.05 var(--serif);letter-spacing:-.03em}
 .article .tags{display:flex;flex-wrap:wrap;gap:8px;margin-top:22px}
 @media (max-width:760px){.article{grid-template-columns:1fr}.article img{aspect-ratio:16/10}}
 
+.press{display:grid;grid-template-columns:.95fr 1.05fr;margin-top:20px;background:var(--surface);border:1px solid var(--line);border-radius:var(--r);overflow:hidden;box-shadow:var(--shadow)}
+.press blockquote{background:#4e2a84;color:#fff;padding:clamp(28px,4vw,48px);display:flex;flex-direction:column;justify-content:center;position:relative}
+.press .q{width:40px;height:40px;color:#c9b6ec;margin-bottom:18px}
+.press blockquote p{font:400 clamp(21px,2.3vw,27px)/1.35 var(--serif);letter-spacing:-.01em}
+.press cite{display:block;margin-top:22px;font:500 12px var(--mono);font-style:normal;letter-spacing:.06em;text-transform:uppercase;color:#c9b6ec}
+.press .body{padding:clamp(24px,4vw,48px);display:flex;flex-direction:column;justify-content:center}
+.press h3{font:500 clamp(24px,3vw,32px)/1.15 var(--serif);letter-spacing:-.02em;margin:6px 0 14px}
+.press .body p{color:var(--muted)}
+.press .links{display:flex;flex-wrap:wrap;gap:22px}
+@media (max-width:760px){.press{grid-template-columns:1fr}}
+
 /* ---------- projects ---------- */
 .feature{display:grid;grid-template-columns:1.25fr 1fr;background:var(--surface);border:1px solid var(--line);border-radius:var(--r);overflow:hidden;box-shadow:var(--shadow);margin-bottom:20px}
 .feature .shot{background:#0d1117;padding:28px;display:flex;align-items:center}
@@ -221,7 +232,7 @@ h2{font:500 clamp(34px,4.5vw,52px)/1.05 var(--serif);letter-spacing:-.03em}
 .school.current::after{content:"In progress";position:absolute;top:24px;right:24px;font:500 11px var(--mono);text-transform:uppercase;letter-spacing:.06em;color:var(--accent);background:var(--accent-soft);padding:3px 8px;border-radius:99px}
 @media (max-width:880px){.edu{grid-template-columns:1fr}}
 .cert{margin-top:20px;display:flex;align-items:center;gap:16px;padding:18px 24px;border:1px solid var(--line);border-radius:var(--r);background:var(--surface)}
-.cert .snow{font-size:28px;color:#29b5e8;line-height:1}
+.cert .sf{width:28px;height:28px;flex:none}
 .cert p{color:var(--muted);font-size:15px}
 .cert b{color:var(--ink)}
 
@@ -234,21 +245,28 @@ h2{font:500 clamp(34px,4.5vw,52px)/1.05 var(--serif);letter-spacing:-.03em}
 @media (max-width:880px){.skill-row{grid-template-columns:1fr;gap:12px}}
 
 /* ---------- resume / contact ---------- */
-.resume{display:grid;grid-template-columns:1.1fr .9fr;gap:48px;align-items:center;background:var(--accent);color:var(--accent-ink);border-radius:28px;padding:clamp(28px,5vw,64px);position:relative;overflow:hidden}
-.resume::before{content:"";position:absolute;inset:0;background-image:linear-gradient(color-mix(in srgb,var(--accent-ink) 10%,transparent) 1px,transparent 1px),linear-gradient(90deg,color-mix(in srgb,var(--accent-ink) 10%,transparent) 1px,transparent 1px);background-size:40px 40px;mask-image:linear-gradient(90deg,transparent,#000 70%);-webkit-mask-image:linear-gradient(90deg,transparent,#000 70%);pointer-events:none}
-.resume-copy{position:relative;z-index:1}
-.resume h2{color:inherit;margin-top:12px}
-.resume p{opacity:.88;margin-top:14px;max-width:46ch;font-size:17px}
-.resume .cta{margin-top:28px}
-.resume .btn{background:var(--accent-ink);color:var(--accent);border-color:var(--accent-ink)}
-.resume .btn.ghost{background:transparent;color:var(--accent-ink);border-color:color-mix(in srgb,var(--accent-ink) 45%,transparent)}
-.paper{position:relative;z-index:1;display:block;align-self:end;justify-self:center;width:100%;max-width:420px;margin-bottom:calc(-1 * clamp(28px,5vw,64px));transform:rotate(-2deg) translateY(14px);transform-origin:50% 100%;transition:transform .4s ease}
-.paper img{width:100%;border-radius:8px 8px 0 0;background:#fff;box-shadow:0 30px 60px -20px rgba(0,0,0,.55),0 0 0 1px rgba(0,0,0,.06)}
-.paper:hover{transform:rotate(0) translateY(0)}
-@media (max-width:760px){.resume{grid-template-columns:1fr;gap:32px}.paper{max-width:320px}}
-footer{padding:96px 0 48px}
-.contact h2{font-size:clamp(40px,7vw,84px);line-height:1}
-.contact a.mail{font:500 clamp(20px,3vw,30px) var(--serif);color:var(--accent);text-decoration:none;border-bottom:1px solid currentColor;display:inline-block;margin-top:24px;word-break:break-all}
+footer{padding:120px 0 40px}
+.closing{display:grid;grid-template-columns:1.2fr .9fr;gap:56px;align-items:center}
+.contact h2{font-size:clamp(40px,6vw,72px);line-height:1;margin-top:16px}
+.contact h2 em{color:var(--accent)}
+.contact p{color:var(--muted);margin-top:20px;max-width:44ch;font-size:17px}
+.contact a.mail{font:500 clamp(20px,2.6vw,26px) var(--serif);color:var(--ink);text-decoration:none;border-bottom:1px solid var(--accent);display:inline-block;margin-top:24px;word-break:break-all;transition:color .15s}
+.contact a.mail:hover{color:var(--accent)}
+.filecard{background:var(--surface);border:1px solid var(--line);border-radius:22px;padding:28px;box-shadow:var(--shadow)}
+.file-top{display:flex;align-items:center;gap:16px;padding-bottom:22px;border-bottom:1px solid var(--line)}
+.file-top b{display:block;font-size:17px;font-weight:700}
+.file-top small{color:var(--muted);font-size:13px}
+.pdf{position:relative;width:52px;height:60px;flex:none;color:var(--muted)}
+.pdf svg{width:100%;height:100%}
+.pdf span{position:absolute;left:-4px;bottom:9px;font:700 10px var(--sans);letter-spacing:.06em;background:#e5484d;color:#fff;padding:2px 5px;border-radius:4px}
+.filecard dl{display:grid;gap:14px;margin:22px 0 26px}
+.filecard dl div{display:grid;grid-template-columns:96px 1fr;gap:12px;font-size:14px}
+.filecard dt{font:500 11px/1.9 var(--mono);text-transform:uppercase;letter-spacing:.08em;color:var(--muted)}
+.filecard dd{color:var(--ink)}
+.file-actions{display:flex;gap:10px}
+.file-actions .btn{flex:1;justify-content:center}
+@media (max-width:880px){.closing{grid-template-columns:1fr;gap:40px}footer{padding-top:88px}}
+@media (max-width:420px){.filecard{padding:22px}.filecard dl div{grid-template-columns:1fr;gap:2px}}
 .foot{display:flex;flex-wrap:wrap;justify-content:space-between;gap:16px;margin-top:72px;padding-top:24px;border-top:1px solid var(--line);font-size:14px;color:var(--muted)}
 .foot nav{display:flex;gap:20px}
 .foot a{text-decoration:none}.foot a:hover{color:var(--ink)}
@@ -270,6 +288,7 @@ dialog button{position:fixed;top:16px;right:20px;background:rgba(255,255,255,.12
 </style>
 </head>
 <body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><symbol id="sf-mark" viewBox="0 0 24 24"><path fill="#29B5E8" d="M7.602 12.4c.038-.151.076-.304.076-.456 0-.114-.038-.228-.038-.342-.114-.343-.304-.647-.646-.838l-4.87-2.777c-.685-.38-1.56-.152-1.94.533-.381.685-.153 1.56.532 1.94l2.701 1.56-2.701 1.56c-.685.38-.913 1.256-.533 1.94.38.685 1.256.914 1.94.533l4.832-2.777c.343-.267.571-.533.647-.876zm1.332 2.626c-.266-.038-.57.038-.837.19l-4.832 2.777c-.685.38-.913 1.256-.532 1.94.38.686 1.255.914 1.94.533l2.701-1.56v3.12c0 .8.647 1.408 1.446 1.408.799 0 1.407-.647 1.407-1.408v-5.592c0-.761-.57-1.37-1.293-1.408zm4.946-6.088c.266.038.57-.038.837-.19l4.832-2.777c.685-.38.913-1.256.532-1.94-.38-.686-1.255-.914-1.94-.533l-2.701 1.56V1.975c0-.799-.647-1.408-1.446-1.408-.799 0-1.446.609-1.446 1.408V7.53c0 .76.609 1.37 1.332 1.407zM3.265 5.97l4.832 2.777c.266.152.533.19.837.19.723-.038 1.331-.684 1.331-1.407V1.975c0-.799-.646-1.408-1.407-1.408-.799 0-1.446.647-1.446 1.408v3.12l-2.701-1.56c-.685-.38-1.56-.152-1.94.533-.419.646-.19 1.521.494 1.902zm9.093 6.011a.412.412 0 00-.114-.266l-.57-.571a.346.346 0 00-.267-.114.412.412 0 00-.266.114l-.571.57a.411.411 0 00-.114.267c0 .076.038.19.114.267l.57.57a.345.345 0 00.267.114c.076 0 .19-.038.266-.114l.571-.57a.412.412 0 00.114-.267zm1.598.533L11.94 14.53c-.039.038-.153.114-.229.114h-.608a.411.411 0 01-.267-.114L8.82 12.514a.408.408 0 01-.076-.229v-.608c0-.076.038-.19.114-.267l2.016-2.016a.41.41 0 01.267-.114h.608a.41.41 0 01.267.114l2.016 2.016a.347.347 0 01.114.267v.608c-.076.077-.114.19-.19.229zm5.593 5.44l-4.832-2.777c-.266-.152-.57-.19-.837-.152-.723.038-1.332.684-1.332 1.408v5.554c0 .8.647 1.408 1.408 1.408.799 0 1.446-.647 1.446-1.408v-3.12l2.7 1.56c.686.38 1.561.152 1.941-.533.419-.646.19-1.521-.494-1.94zm2.549-7.533l-2.701 1.56 2.7 1.56c.686.38.914 1.256.533 1.94-.38.685-1.255.913-1.94.533l-4.832-2.778a1.644 1.644 0 01-.647-.798c-.037-.153-.076-.305-.076-.457 0-.114.039-.228.039-.342.114-.343.342-.647.646-.837l4.832-2.778c.685-.38 1.56-.152 1.94.533.457.609.19 1.484-.494 1.864"/></symbol></svg>
 <script>document.documentElement.classList.add('js')</script>
 
 <header class="nav" id="nav">
@@ -284,7 +303,7 @@ dialog button{position:fixed;top:16px;right:20px;background:rgba(255,255,255,.12
       <li><a href="#writing">Writing</a></li>
       <li><a href="#projects">Projects</a></li>
       <li><a href="#education">Education</a></li>
-      <li><a class="btn primary" href="assets/Narin-Dhatwalia-Resume.pdf" download>Résumé ↓</a></li>
+      <li><a class="btn primary" href="#resume">Résumé</a></li>
     </ul>
   </div>
 </header>
@@ -308,7 +327,7 @@ dialog button{position:fixed;top:16px;right:20px;background:rgba(255,255,255,.12
       </div>
       <div class="portrait">
         <div class="frame"><img src="images/headshot.jpg" alt="Portrait of Narin Dhatwalia" width="960" height="1200" fetchpriority="high"></div>
-        <div class="badge b2"><span class="snow">❄</span><div><b>Snowflake</b><small>AI/ML · since 2024</small></div></div>
+        <div class="badge b2"><svg class="sf" viewBox="0 0 24 24" aria-hidden="true"><use href="#sf-mark"/></svg><div><b>Snowflake</b><small>AI/ML · since 2024</small></div></div>
         <div class="badge b1"><b>🏆 2× first prize</b><small>Snowflake internal hackathons</small></div>
       </div>
     </div>
@@ -352,6 +371,7 @@ dialog button{position:fixed;top:16px;right:20px;background:rgba(255,255,255,.12
             <li>Led a 6-month study of GPU-accelerated Random Forest vs. the XGBoost originations baseline: much faster training, less overfitting.</li>
             <li>Owned "Soft Inquiry Attributes" end to end, from SQL/Spark extraction to measuring lift in credit-card marketing models.</li>
           </ul>
+          <a class="linkish" href="#writing">Featured by Northwestern MLDS →</a>
         </div>
       </div>
       <div class="job reveal">
@@ -388,7 +408,7 @@ dialog button{position:fixed;top:16px;right:20px;background:rgba(255,255,255,.12
             <div class="meta">Menlo Park, CA · Nov 2025 · 150+ attendees</div>
             <h3>Snowflake PS Tech Summit 2025: Cortex AISQL in production</h3>
             <p>I led an enablement session on Cortex AISQL at Snowflake's three-day Professional Services summit. I covered multimodality across AISQL functions, walked through a real customer use case, and laid out best practices for production deployments.</p>
-            <ul><li class="chip accent">Cortex AISQL</li><li class="chip">Multimodal AI</li><li class="chip">Production best practices</li></ul>
+            <ul><li class="chip">Cortex AISQL</li><li class="chip">Multimodal AI</li><li class="chip">Production best practices</li></ul>
           </div>
           <a class="btn" href="https://lnkd.in/p/gVRUPk5j" target="_blank" rel="noopener">View post ↗</a>
         </div>
@@ -428,8 +448,8 @@ dialog button{position:fixed;top:16px;right:20px;background:rgba(255,255,255,.12
   <section id="writing">
     <div class="wrap">
       <div class="sec-head reveal">
-        <div class="sec-num">03 — Writing</div>
-        <div><h2>Published on Snowflake Builders.</h2><p>Technical writing for practitioners, used by Snowflake customers.</p></div>
+        <div class="sec-num">03 — Writing &amp; press</div>
+        <div><h2>Written by me, and about me.</h2><p>Technical writing for Snowflake practitioners, and a feature from Northwestern on life after the MLDS program.</p></div>
       </div>
       <a class="article reveal" href="https://medium.com/snowflake/using-the-snowflake-model-registry-with-custom-model-classes-d310a009329b" target="_blank" rel="noopener">
         <img src="images/medium-cover.jpg" alt="Snowflake Model Registry and XGBoost illustration" loading="lazy">
@@ -440,6 +460,23 @@ dialog button{position:fixed;top:16px;right:20px;background:rgba(255,255,255,.12
           <div class="tags"><span class="chip">Machine Learning</span><span class="chip">XGBoost</span><span class="chip">MLOps</span><span class="chip">Snowflake</span></div>
         </div>
       </a>
+
+      <article class="press reveal">
+        <blockquote>
+          <svg class="q" viewBox="0 0 32 32" aria-hidden="true"><path fill="currentColor" d="M9.3 26C5.3 26 3 23 3 19c0-6.6 4.9-11.6 11-13l1 2.4c-3.9 1.4-6 4.2-6.3 7.1.5-.2 1.1-.3 1.7-.3 3 0 5.3 2.2 5.3 5.3S13 26 9.3 26zm16 0c-4 0-6.3-3-6.3-7 0-6.6 4.9-11.6 11-13l1 2.4c-3.9 1.4-6 4.2-6.3 7.1.5-.2 1.1-.3 1.7-.3 3 0 5.3 2.2 5.3 5.3S29 26 25.3 26z"/></svg>
+          <p>My learning cannot stop after MSiA. The life of a data scientist is always full of new learnings, and maintaining a curious mindset is key for long-term success.</p>
+          <cite>From the Northwestern MLDS feature</cite>
+        </blockquote>
+        <div class="body">
+          <div class="meta">Northwestern Engineering · MLDS · Dec 2023</div>
+          <h3>Continuing to Learn, Even After Graduating</h3>
+          <p>Northwestern's Machine Learning &amp; Data Science program featured my move from the MS program to TransUnion. The story covers the survival-analysis model I built as an intern, which I'd never heard of before the program, and the consumer risk score I later designed for installment-loan applications.</p>
+          <div class="links">
+            <a class="linkish" href="https://www.mccormick.northwestern.edu/machine-learning-data-science/inside-our-program/stories/2023/continuing-to-learn-even-after-graduating.html" target="_blank" rel="noopener">Read the story <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M7 17L17 7M9 7h8v8"/></svg></a>
+            <a class="linkish" href="https://lnkd.in/p/gTtkG3_r" target="_blank" rel="noopener">LinkedIn post <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M7 17L17 7M9 7h8v8"/></svg></a>
+          </div>
+        </div>
+      </article>
     </div>
   </section>
 
@@ -537,7 +574,7 @@ dialog button{position:fixed;top:16px;right:20px;background:rgba(255,255,255,.12
           <div class="score"><span>Score</span><b>81.46%</b></div>
         </div>
       </div>
-      <div class="cert reveal"><span class="snow">❄</span><p><b>SnowPro Core Certified</b> · Snowflake</p></div>
+      <div class="cert reveal"><svg class="sf" viewBox="0 0 24 24" aria-hidden="true"><use href="#sf-mark"/></svg><p><b>SnowPro Core Certified</b> · Snowflake</p></div>
     </div>
   </section>
 
@@ -549,7 +586,7 @@ dialog button{position:fixed;top:16px;right:20px;background:rgba(255,255,255,.12
         <div><h2>What I work with.</h2></div>
       </div>
       <div class="skills reveal">
-        <div class="skill-row"><h4>ML &amp; AI</h4><div><span class="chip accent">LLM agents</span><span class="chip accent">RAG</span><span class="chip accent">Fine-tuning &amp; distillation</span><span class="chip accent">LLM-as-judge evals</span><span class="chip">PyTorch</span><span class="chip">XGBoost</span><span class="chip">scikit-learn</span><span class="chip">TensorFlow</span><span class="chip">LangChain</span><span class="chip">LangGraph</span><span class="chip">MCP</span><span class="chip">Experimental design</span></div></div>
+        <div class="skill-row"><h4>ML &amp; AI</h4><div><span class="chip">LLM agents</span><span class="chip">RAG</span><span class="chip">Fine-tuning &amp; distillation</span><span class="chip">LLM-as-judge evals</span><span class="chip">PyTorch</span><span class="chip">XGBoost</span><span class="chip">scikit-learn</span><span class="chip">TensorFlow</span><span class="chip">LangChain</span><span class="chip">LangGraph</span><span class="chip">MCP</span><span class="chip">Experimental design</span></div></div>
         <div class="skill-row"><h4>Snowflake</h4><div><span class="chip">Cortex Agents</span><span class="chip">Cortex Analyst</span><span class="chip">Cortex Search</span><span class="chip">Snowpark</span><span class="chip">Model Registry</span><span class="chip">Feature Store</span><span class="chip">Dynamic Tables</span><span class="chip">Streamlit</span></div></div>
         <div class="skill-row"><h4>Languages &amp; data</h4><div><span class="chip">Python</span><span class="chip">SQL</span><span class="chip">R</span><span class="chip">Spark</span><span class="chip">PostgreSQL</span><span class="chip">BigQuery</span><span class="chip">Neo4j</span></div></div>
         <div class="skill-row"><h4>Cloud &amp; BI</h4><div><span class="chip">AWS SageMaker</span><span class="chip">S3 · EC2 · ECS</span><span class="chip">CloudFormation</span><span class="chip">Tableau</span><span class="chip">Power BI</span><span class="chip">Sigma</span><span class="chip">Hex</span></div></div>
@@ -557,33 +594,40 @@ dialog button{position:fixed;top:16px;right:20px;background:rgba(255,255,255,.12
     </div>
   </section>
 
-  <!-- RESUME -->
-  <section id="resume">
-    <div class="wrap">
-      <div class="resume reveal">
-        <div class="resume-copy">
-          <div class="sec-num" style="color:inherit;opacity:.8">07 — Résumé</div>
-          <h2>The one-page version.</h2>
-          <p>Six-plus years of enterprise AI/ML on a single page: Snowflake, TransUnion, Kellogg's and Coca-Cola engagements, projects, education and skills.</p>
-          <div class="cta">
-            <a class="btn" href="assets/Narin-Dhatwalia-Resume.pdf" download>
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12m0 0l-5-5m5 5l5-5M5 21h14"/></svg>Download PDF</a>
-            <a class="btn ghost" href="assets/Narin-Dhatwalia-Resume.pdf" target="_blank" rel="noopener">Open in browser ↗</a>
-          </div>
-        </div>
-        <a class="paper" href="assets/Narin-Dhatwalia-Resume.pdf" target="_blank" rel="noopener" aria-label="Open résumé PDF">
-          <img src="images/resume-preview.jpg" alt="Preview of Narin Dhatwalia's one-page résumé" loading="lazy" width="989" height="782">
-        </a>
-      </div>
-    </div>
-  </section>
 </main>
 
-<footer>
-  <div class="wrap contact">
-    <div class="eyebrow">Get in touch</div>
-    <h2 style="margin-top:16px">Let's build something<br><em style="color:var(--accent)">useful.</em></h2>
-    <a class="mail" href="mailto:narinpratap@yahoo.com">narinpratap@yahoo.com</a>
+<footer id="contact">
+  <div class="wrap">
+    <div class="closing reveal">
+      <div class="contact">
+        <div class="eyebrow">Get in touch</div>
+        <h2>Let's build something <em>useful.</em></h2>
+        <p>Open to conversations about applied AI, LLM systems in production, and data science leadership.</p>
+        <a class="mail" href="mailto:narinpratap@yahoo.com">narinpratap@yahoo.com</a>
+      </div>
+      <div class="filecard" id="resume">
+        <div class="file-top">
+          <div class="pdf" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"/><path d="M14 3v5h5"/></svg>
+            <span>PDF</span>
+          </div>
+          <div>
+            <b>Narin Dhatwalia — Résumé</b>
+            <small>One page · Updated October 2026</small>
+          </div>
+        </div>
+        <dl>
+          <div><dt>Current</dt><dd>Sr. Technical Architect, AI/ML · Snowflake</dd></div>
+          <div><dt>Experience</dt><dd>6+ years · Snowflake, TransUnion, Decision Point, Antuit.ai</dd></div>
+          <div><dt>Education</dt><dd>MS, Northwestern · DBA in progress</dd></div>
+        </dl>
+        <div class="file-actions">
+          <a class="btn primary" href="assets/Narin-Dhatwalia-Resume.pdf" download>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12m0 0l-5-5m5 5l5-5M5 21h14"/></svg>Download</a>
+          <a class="btn" href="assets/Narin-Dhatwalia-Resume.pdf" target="_blank" rel="noopener">View ↗</a>
+        </div>
+      </div>
+    </div>
     <div class="foot">
       <span>© 2026 Narin Dhatwalia · Chicago, IL</span>
       <nav><a href="https://www.linkedin.com/in/npsd/" target="_blank" rel="noopener">LinkedIn</a><a href="https://github.com/NarinCodes" target="_blank" rel="noopener">GitHub</a><a href="https://medium.com/snowflake/using-the-snowflake-model-registry-with-custom-model-classes-d310a009329b" target="_blank" rel="noopener">Medium</a></nav>
@@ -614,7 +658,7 @@ dialog button{position:fixed;top:16px;right:20px;background:rgba(255,255,255,.12
   } else els.forEach(el => el.classList.add('in'));
 
   const links = [...document.querySelectorAll('#menu a[href^="#"]')];
-  const secs = links.map(a => document.querySelector(a.getAttribute('href')));
+  const secs = [...document.querySelectorAll('main section[id], footer[id]')];
   if ('IntersectionObserver' in window) {
     const spy = new IntersectionObserver(es => es.forEach(e => {
       if (e.isIntersecting) links.forEach(a => a.classList.toggle('active', a.getAttribute('href') === '#' + e.target.id));
