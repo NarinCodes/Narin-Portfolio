@@ -49,7 +49,7 @@ a{color:inherit}
 .mark span{color:var(--accent)}
 .nav ul{display:flex;gap:4px;list-style:none;align-items:center}
 .nav ul a{text-decoration:none;font-size:14px;font-weight:500;color:var(--muted);padding:8px 12px;border-radius:99px;transition:color .15s,background .15s}
-.nav ul a:hover{color:var(--ink);background:var(--surface-2)}
+.nav ul a:hover,.nav ul a.active{color:var(--ink);background:var(--surface-2)}
 .btn{display:inline-flex;align-items:center;gap:8px;font:600 14px var(--sans);text-decoration:none;padding:11px 18px;border-radius:99px;border:1px solid var(--line);background:var(--surface);color:var(--ink);transition:transform .15s,border-color .15s,background .15s;cursor:pointer;white-space:nowrap}
 .btn:hover{transform:translateY(-1px);border-color:var(--ink)}
 .btn.primary{background:var(--ink);color:var(--bg);border-color:var(--ink)}
@@ -78,8 +78,8 @@ h1 em{font-style:italic;color:var(--accent)}
 .lede strong{color:var(--ink);font-weight:600}
 .cta{display:flex;flex-wrap:wrap;gap:10px;margin-top:32px}
 .portrait{position:relative;justify-self:end;width:100%;max-width:380px}
-.portrait .frame{border-radius:28px;overflow:hidden;aspect-ratio:1;background:var(--surface-2);box-shadow:var(--shadow);transform:rotate(1.5deg)}
-.portrait .frame img{width:100%;height:100%;object-fit:cover;object-position:50% 30%}
+.portrait .frame{border-radius:28px;overflow:hidden;aspect-ratio:4/5;background:var(--surface-2);box-shadow:var(--shadow);transform:rotate(1.5deg)}
+.portrait .frame img{width:100%;height:100%;object-fit:cover;object-position:50% 20%}
 .badge{position:absolute;background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:10px 14px;box-shadow:var(--shadow);font-size:13px;line-height:1.35}
 .badge b{display:block;font-weight:700}
 .badge small{color:var(--muted);font-size:12px}
@@ -234,14 +234,18 @@ h2{font:500 clamp(34px,4.5vw,52px)/1.05 var(--serif);letter-spacing:-.03em}
 @media (max-width:880px){.skill-row{grid-template-columns:1fr;gap:12px}}
 
 /* ---------- resume / contact ---------- */
-.resume{display:grid;grid-template-columns:1fr auto;gap:32px;align-items:center;background:var(--accent);color:var(--accent-ink);border-radius:24px;padding:clamp(28px,5vw,56px);position:relative;overflow:hidden}
-.resume::after{content:"";position:absolute;right:-140px;bottom:-200px;width:320px;height:320px;border-radius:50%;border:1px solid color-mix(in srgb,var(--accent-ink) 25%,transparent);box-shadow:0 0 0 40px color-mix(in srgb,var(--accent-ink) 6%,transparent),0 0 0 80px color-mix(in srgb,var(--accent-ink) 4%,transparent)}
-.resume h2{color:inherit}
-.resume p{opacity:.85;margin-top:12px;max-width:52ch;font-size:17px}
-.resume .cta{margin-top:0;position:relative;z-index:1;flex-direction:column;align-items:stretch}
-.resume .btn{background:var(--accent-ink);color:var(--accent);border-color:var(--accent-ink);justify-content:center}
+.resume{display:grid;grid-template-columns:1.1fr .9fr;gap:48px;align-items:center;background:var(--accent);color:var(--accent-ink);border-radius:28px;padding:clamp(28px,5vw,64px);position:relative;overflow:hidden}
+.resume::before{content:"";position:absolute;inset:0;background-image:linear-gradient(color-mix(in srgb,var(--accent-ink) 10%,transparent) 1px,transparent 1px),linear-gradient(90deg,color-mix(in srgb,var(--accent-ink) 10%,transparent) 1px,transparent 1px);background-size:40px 40px;mask-image:linear-gradient(90deg,transparent,#000 70%);-webkit-mask-image:linear-gradient(90deg,transparent,#000 70%);pointer-events:none}
+.resume-copy{position:relative;z-index:1}
+.resume h2{color:inherit;margin-top:12px}
+.resume p{opacity:.88;margin-top:14px;max-width:46ch;font-size:17px}
+.resume .cta{margin-top:28px}
+.resume .btn{background:var(--accent-ink);color:var(--accent);border-color:var(--accent-ink)}
 .resume .btn.ghost{background:transparent;color:var(--accent-ink);border-color:color-mix(in srgb,var(--accent-ink) 45%,transparent)}
-@media (max-width:760px){.resume{grid-template-columns:1fr}.resume .cta{align-items:stretch}}
+.paper{position:relative;z-index:1;display:block;align-self:end;justify-self:center;width:100%;max-width:420px;margin-bottom:calc(-1 * clamp(28px,5vw,64px));transform:rotate(-2deg) translateY(14px);transform-origin:50% 100%;transition:transform .4s ease}
+.paper img{width:100%;border-radius:8px 8px 0 0;background:#fff;box-shadow:0 30px 60px -20px rgba(0,0,0,.55),0 0 0 1px rgba(0,0,0,.06)}
+.paper:hover{transform:rotate(0) translateY(0)}
+@media (max-width:760px){.resume{grid-template-columns:1fr;gap:32px}.paper{max-width:320px}}
 footer{padding:96px 0 48px}
 .contact h2{font-size:clamp(40px,7vw,84px);line-height:1}
 .contact a.mail{font:500 clamp(20px,3vw,30px) var(--serif);color:var(--accent);text-decoration:none;border-bottom:1px solid currentColor;display:inline-block;margin-top:24px;word-break:break-all}
@@ -303,9 +307,9 @@ dialog button{position:fixed;top:16px;right:20px;background:rgba(255,255,255,.12
         </div>
       </div>
       <div class="portrait">
-        <div class="frame"><img src="images/headshot.jpg" alt="Portrait of Narin Dhatwalia" width="394" height="394"></div>
+        <div class="frame"><img src="images/headshot.jpg" alt="Portrait of Narin Dhatwalia" width="960" height="1200" fetchpriority="high"></div>
         <div class="badge b2"><span class="snow">❄</span><div><b>Snowflake</b><small>AI/ML · since 2024</small></div></div>
-        <div class="badge b1"><b>🏆 1st prize</b><small>Internal Snowflake hackathon</small></div>
+        <div class="badge b1"><b>🏆 2× first prize</b><small>Snowflake internal hackathons</small></div>
       </div>
     </div>
   </div>
@@ -381,7 +385,7 @@ dialog button{position:fixed;top:16px;right:20px;background:rgba(255,255,255,.12
       <article class="event reveal">
         <div class="event-top">
           <div>
-            <div class="meta">Menlo Park, CA · Nov 2025 · 100+ Snowflake colleagues</div>
+            <div class="meta">Menlo Park, CA · Nov 2025 · 150+ attendees</div>
             <h3>Snowflake PS Tech Summit 2025: Cortex AISQL in production</h3>
             <p>I led an enablement session on Cortex AISQL at Snowflake's three-day Professional Services summit. I covered multimodality across AISQL functions, walked through a real customer use case, and laid out best practices for production deployments.</p>
             <ul><li class="chip accent">Cortex AISQL</li><li class="chip">Multimodal AI</li><li class="chip">Production best practices</li></ul>
@@ -400,7 +404,7 @@ dialog button{position:fixed;top:16px;right:20px;background:rgba(255,255,255,.12
 
       <div class="duo">
         <article class="event reveal purdue">
-          <div class="logos"><img src="images/headshot.jpg" alt="" width="72" height="72"><img src="images/mlpurdue-logo.jpg" alt="ML@Purdue logo" width="72" height="72"></div>
+          <div class="logos"><img src="images/headshot-sq.jpg" alt="" width="72" height="72"><img src="images/mlpurdue-logo.jpg" alt="ML@Purdue logo" width="72" height="72"></div>
           <div>
             <div class="meta">Purdue University · Apr 2026</div>
             <h3>Catapult: Snowflake Workshop &amp; Tech Talk</h3>
@@ -410,7 +414,7 @@ dialog button{position:fixed;top:16px;right:20px;background:rgba(255,255,255,.12
         </article>
         <article class="event prize reveal">
           <div>
-            <div class="meta">PS Tech Summit 2025 · Hackathon</div>
+            <div class="meta">PS Tech Summit 2025 · Hackathon win #2</div>
             <div class="big-num">1<sup>st</sup></div>
             <p>My team placed first in the <strong>"SOW Generation"</strong> hackathon track and demoed it to PS leadership. We built it with OpenFlow, AI_PARSE_DOCUMENT, Cortex Search, Streamlit and AI_COMPLETE.</p>
           </div>
@@ -557,14 +561,19 @@ dialog button{position:fixed;top:16px;right:20px;background:rgba(255,255,255,.12
   <section id="resume">
     <div class="wrap">
       <div class="resume reveal">
-        <div style="position:relative;z-index:1">
-          <h2>Want the one-page version?</h2>
-          <p>Download my résumé. There's a general data science version, and one that leads with marketing science and growth.</p>
+        <div class="resume-copy">
+          <div class="sec-num" style="color:inherit;opacity:.8">07 — Résumé</div>
+          <h2>The one-page version.</h2>
+          <p>Six-plus years of enterprise AI/ML on a single page: Snowflake, TransUnion, Kellogg's and Coca-Cola engagements, projects, education and skills.</p>
+          <div class="cta">
+            <a class="btn" href="assets/Narin-Dhatwalia-Resume.pdf" download>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12m0 0l-5-5m5 5l5-5M5 21h14"/></svg>Download PDF</a>
+            <a class="btn ghost" href="assets/Narin-Dhatwalia-Resume.pdf" target="_blank" rel="noopener">Open in browser ↗</a>
+          </div>
         </div>
-        <div class="cta">
-          <a class="btn" href="assets/Narin-Dhatwalia-Resume.pdf" download>Résumé: Data Scientist ↓</a>
-          <a class="btn ghost" href="assets/Narin-Dhatwalia-Resume-Growth.pdf" download>Résumé: Growth ↓</a>
-        </div>
+        <a class="paper" href="assets/Narin-Dhatwalia-Resume.pdf" target="_blank" rel="noopener" aria-label="Open résumé PDF">
+          <img src="images/resume-preview.jpg" alt="Preview of Narin Dhatwalia's one-page résumé" loading="lazy" width="989" height="782">
+        </a>
       </div>
     </div>
   </section>
@@ -603,6 +612,15 @@ dialog button{position:fixed;top:16px;right:20px;background:rgba(255,255,255,.12
     }), {threshold: .12, rootMargin: '0px 0px -40px 0px'});
     els.forEach(el => io.observe(el));
   } else els.forEach(el => el.classList.add('in'));
+
+  const links = [...document.querySelectorAll('#menu a[href^="#"]')];
+  const secs = links.map(a => document.querySelector(a.getAttribute('href')));
+  if ('IntersectionObserver' in window) {
+    const spy = new IntersectionObserver(es => es.forEach(e => {
+      if (e.isIntersecting) links.forEach(a => a.classList.toggle('active', a.getAttribute('href') === '#' + e.target.id));
+    }), {rootMargin: '-45% 0px -50% 0px'});
+    secs.forEach(s => s && spy.observe(s));
+  }
 
   const lb = document.getElementById('lightbox');
   const open = fig => {
